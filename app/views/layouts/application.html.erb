@@ -7,7 +7,6 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
   </head>
 
   <body>
@@ -197,11 +196,11 @@
     <script>
       $(document).ready(function () {
 
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-    });
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
 
-});
+      });
     </script>
   </body>
 </html>

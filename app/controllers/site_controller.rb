@@ -1,5 +1,6 @@
 class SiteController < ApplicationController
 	include ApplicationHelper
+	before_action :authenticate_admin!
 	layout 'dashboard'
 	 
   def index

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AnimaisUfc</title>
+  <title><%= @sys_conf.name %></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
@@ -25,7 +25,7 @@
         <li class="active">
           <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
             <i class="fas fa-home"></i>
-            Home
+            Início
           </a>
           <ul class="collapse list-unstyled" id="homeSubmenu">
             <li>
@@ -82,10 +82,10 @@
 
       <ul class="list-unstyled CTAs">
         <li>
-          <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+          <a href="#" class="download">Download source</a>
         </li>
         <li>
-          <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+          <a href="#" class="article">Back to article</a>
         </li>
       </ul>
     </nav>
@@ -98,7 +98,7 @@
 
           <button type="button" id="sidebarCollapse" class="btn btn-info">
             <i class="fas fa-align-left"></i>
-            <span>Toggle Sidebar</span>
+            <span>Modificar Menu</span>
           </button>
           <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-align-justify"></i>

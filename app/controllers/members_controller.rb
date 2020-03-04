@@ -13,7 +13,26 @@ class MembersController < ApplicationController
   	@admin = @admin.new
   end
 
-  def delete
+  def show
   	@sys_conf = get_sys_config
+  	@admin = Admin.find(params[:id])
+  end
+
+  def delete
+  	if(current_admin.id != params[:id].to_i)
+  		if Admin.where(id: params[:id]).count > 0
+  			admin = Admin.find(params[:id])
+  			if !admin.delete
+  				msg = 'Membro removido'
+  			else
+  				msg ='Erro ao Remover Membro'
+  			end
+  		else
+  			msg = 'Membro inexistente no BD'
+  		end
+  	else
+  		msg = 'Você não pode se remover'	
+  	end
+  	redirect_to list_admins_path, notice: msg
   end
 end

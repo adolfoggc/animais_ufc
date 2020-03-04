@@ -45,18 +45,18 @@
             About
           </a>
           <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-            <i class="fas fa-copy"></i>
-            Pages
+            <i class="fas fa-users"></i>
+            Membros
           </a>
           <ul class="collapse list-unstyled" id="pageSubmenu">
             <li>
-              <a href="#">Page 1</a>
+              <a href=<%= url_for list_admins_path %>>Listar</a>
             </li>
             <li>
-              <a href="#">Page 2</a>
+              <a href=<%= url_for new_admin_path%>>Novo Membro</a>
             </li>
             <li>
-              <a href="#">Page 3</a>
+              <a href=<%= url_for delete_admin_path%>>Remover Membro</a>
             </li>
           </ul>
         </li>

@@ -1,0 +1,17 @@
+<style>
+	.card-body, .card-text {
+		background-color:  #FFFFFF;
+		color: #000 !important;
+	}
+</style>
+<div class="card-body">
+	<p class="card-text text-center">
+		Nome: <%= @admin.name %><br>
+		Email: <%= @admin.email %><br>
+		Celular: <%= @admin.cel %><br>
+		Último Login: <%= current_admin.current_sign_in_at %><br>
+	</p>
+	<%= link_to list_admins_path do %>
+	        		<button class="btn btn-info">Voltar</button>
+	        	<% end %>
+</div>

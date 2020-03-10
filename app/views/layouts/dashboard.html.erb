@@ -11,7 +11,11 @@
   <%= stylesheet_link_tag "/css/all.min" %>
   <%= javascript_include_tag "/js/all.min" %>
 </head>
-
+<style>
+  #content {
+    background-color: #EEEEEE !important;
+  }
+</style>
 <body>
   <div class="wrapper">
     <!-- Sidebar  -->
@@ -53,7 +57,7 @@
               <a href=<%= url_for list_admins_path %>>Listar</a>
             </li>
             <li>
-              <a href=<%= url_for new_admin_path%>>Novo Membro</a>
+              <a href=<%= url_for create_new_admin_path%>>Novo Membro</a>
             </li>
             <li>
               <a href='#'<%# url_for delete_admin_path%>>Remover Membro</a>

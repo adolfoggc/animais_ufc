@@ -4,18 +4,21 @@ Rails.application.routes.draw do
   get 'members/delete'
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
+
   }
 
   root 'site#index'
   
   authenticate :admin do
+    resources :admin
   	root 'site#index'
   	
   	#rotas de admin
-  	get '/novo_admin', to: 'members#new', as: 'new_admin'
+  	get '/novo_admin', to: 'members#new', as: 'create_new_admin'
+    post '/novo_admin', to: 'members#new', as: 'save_new_admin'
   	get '/mostrar_admins', to: 'members#index', as: 'list_admins'
     get '/mostrar_admin/:id', to: 'members#show', as: 'show_admin'
-  	delete '/delete_admin/:id', to: 'members#delete', as: 'delete_admin'
+  	post '/delete_admin/:id', to: 'members#delete', as: 'delete_admin'
   end
 
   #devise_for :users

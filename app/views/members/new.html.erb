@@ -72,20 +72,34 @@ body {
     max-width: 75%;
     margin: auto;
   }
-</style>
-<h1>Membros</h1>
-  <body class="text-center">
-    <%# resource = @admin %>
-    <%# form_for(resource, , as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= form_with(url: save_new_admin_path, method: "post", html:{class: 'text-center'}) do %>
-    <label for="admin_name" class="sr-only">Nome</label>
-    <input type="text" id="admin_email" name="admin[name]" class="form-control" placeholder="Nome" required autofocus>
-    <label for="admin_email" class="sr-only">Email</label>
-    <input type="email" id="admin_email" name="admin[email]" class="form-control" placeholder="Email address" required>
-    <label for="admin_password" class="sr-only">Password</label>
-    <input type="password" id="admin_password" name="admin[password]" class="form-control" placeholder="Password" required>
-  
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Criar</button>
-  
-  <% end %>
 
+  .card {
+    margin: auto;
+  }
+
+
+  .w50 {
+    max-width: 50%;
+    width: 50%;
+    margin: auto;
+  }
+
+
+</style>
+<div class="card text-center p-4">
+
+  <h1 class="text-left">Membros</h1>
+  <div class="w50">
+    <%= form_with(url: save_new_admin_path, method: "post", html:{class: 'text-center'}) do %>
+    
+      <div id="fields" class="my-4" >
+        <input type="text" id="admin_name" name="admin[name]" class="form-control" placeholder="Nome" required autofocus>
+        <input type="text" id="admin_cel" name="admin[cel]" class="form-control" placeholder="Celular" required>
+        <input type="email" id="admin_email" name="admin[email]" class="form-control" placeholder="Email Address" required>
+        <input type="password" id="admin_password" name="admin[password]" class="form-control" placeholder="Password" required>
+      </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Criar</button>
+    <% end %>
+  </div>
+</div>

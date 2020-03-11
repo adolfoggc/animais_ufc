@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   	
   	#rotas de admin
   	get '/novo_admin', to: 'members#new', as: 'create_new_admin'
-    post '/novo_admin', to: 'members#new', as: 'save_new_admin'
+    post '/novo_admin', to: 'members#create_new', as: 'save_new_admin'
   	get '/mostrar_admins', to: 'members#index', as: 'list_admins'
     get '/mostrar_admin/:id', to: 'members#show', as: 'show_admin'
   	post '/delete_admin/:id', to: 'members#delete', as: 'delete_admin'

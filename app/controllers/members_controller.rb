@@ -13,8 +13,17 @@ class MembersController < ApplicationController
   	@admin = Admin.new
   end
 
-  def create
-    redirect_to root_path
+  def create_new
+    admin = Admin.new(name: params[:admin][:name], 
+                      password: params[:admin][:password], 
+                      email: params[:admin][:email])
+    if(admin.save!)
+      redirect_to list_admins_path
+    else
+      redirect_to root_path
+    end
+
+    
   end
 
   def show

@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     post '/novo_admin', to: 'members#create_new', as: 'save_new_admin'
   	get '/mostrar_admins', to: 'members#index', as: 'list_admins'
     get '/mostrar_admin/:id', to: 'members#show', as: 'show_admin'
-  	post '/delete_admin/:id', to: 'members#delete', as: 'delete_admin'
+  	delete '/delete_admin/:id', to: 'members#delete', as: 'delete_admin'
   end
 
   #devise_for :users

@@ -15,6 +15,13 @@
   #content {
     background-color: #EEEEEE !important;
   }
+
+  #notice {
+    color: #FFFFFF !important;
+    background-color: #42b442;
+    font-weight: bold;
+  }
+
 </style>
 <body>
   <div class="wrapper">
@@ -59,9 +66,10 @@
             <li>
               <a href=<%= url_for create_new_admin_path%>>Novo Membro</a>
             </li>
+            <!--
             <li>
               <a href='#'<%# url_for delete_admin_path%>>Remover Membro</a>
-            </li>
+            </li> -->
           </ul>
         </li>
         <li>
@@ -127,8 +135,14 @@
           </div>
         </div>
       </nav>
-      <%= yield %>
-      
+      <% unless notice.nil? %>
+        <p id="notice" class="rounded p-2"><%= notice %></p>
+      <% end %>
+      <div class="scroll_area">
+        <div class="card text-center p-4">
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </div>
   <script type="text/javascript">
@@ -136,7 +150,22 @@
       $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');
       });
+
+      <% unless notice.nil? %>
+      //notice
+      var counter = 0;
+      var interval = setInterval(function() {
+          counter++;
+          // Display 'counter' wherever you want to display it.
+          if (counter == 5) {
+              // Display a login box
+              $("#notice").hide();
+          }
+      }, 1000);
+      <% end %>
     });
+
+
   </script>
 </body>
 </html>

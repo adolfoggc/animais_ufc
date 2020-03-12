@@ -15,12 +15,16 @@ class MembersController < ApplicationController
 
   def create_new
     admin = Admin.new(name: params[:admin][:name], 
-                      password: params[:admin][:password], 
+                      password: params[:admin][:password],
+                      cel: params[:admin][:cel], 
                       email: params[:admin][:email])
+    admin.is_active = true
     if(admin.save!)
-      redirect_to list_admins_path
+      msg = 'Membro adicionado'
+      redirect_to list_admins_path, notice: msg
     else
-      redirect_to root_path
+      msg = 'Falha ao adicionar membro'
+      redirect_to root_path, notice: msg
     end
 
     
@@ -34,13 +38,18 @@ class MembersController < ApplicationController
   def delete
 		if Admin.where(id: params[:id]).count > 0 #admin existe
 			admin = Admin.find(params[:id])
-			if !admin.is_active = false
-				msg = 'Membro removido'
-				if current_admin.id == params[:id].to_i
-					!sign_out(current_admin)
-				end
+			if admin.is_active == true
+        admin.is_active = false
+				if admin.save!
+          msg = 'Membro removido'
+  				if current_admin.id == params[:id].to_i
+  					!sign_out(current_admin)
+  				end
+        else
+          msg ='Erro ao Remover Membro'  
+        end
 			else
-				msg ='Erro ao Remover Membro'
+				msg ='Membro já foi removido'
 			end
 		else
 			msg = 'Membro inexistente no BD'

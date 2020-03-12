@@ -86,10 +86,9 @@ body {
 
 
 </style>
-<div class="card text-center p-4">
 
   <h1 class="text-left">Membros</h1>
-  <div class="w50">
+  <div class="w-50 p-3">
     <%= form_with(url: save_new_admin_path, method: "post", html:{class: 'text-center'}) do %>
     
       <div id="fields" class="my-4" >
@@ -102,4 +101,4 @@ body {
     <button class="btn btn-lg btn-primary btn-block" type="submit">Criar</button>
     <% end %>
   </div>
-</div>
+
